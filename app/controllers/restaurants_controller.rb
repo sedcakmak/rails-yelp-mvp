@@ -5,7 +5,10 @@ class RestaurantsController < ApplicationController
     @restaurants = Restaurant.all
   end
 
-  def show; end
+  def show
+    # used for our simple_form on the show page
+    @review = Review.new
+  end
 
   def new
     @restaurant = Restaurant.new

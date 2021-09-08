@@ -1,11 +1,34 @@
-    <% @restaurants.each do |restaurant| %>
+<div class="p-5">
+
+  <h1>Restaurants</h1>
+
+  <table>
+    <thead>
       <tr>
-        <td><%= restaurant.name %></td>
-        <td><%= restaurant.address %></td>
-        <td><%= restaurant.category %></td>
-        <td><%= restaurant.phone_number %></td>
-        <td><%#= link_to 'Show', restaurant %></td>
-        <td><%#= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
-        <td><%#= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Name</th>
+        <th>  </th>
+        <th>Category</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
+    </thead>
+
+     <tbody>
+         <% @restaurants.each do |restaurant| %>
+        <tr>
+          <td><%= restaurant.name %></td>
+          <td><%#= restaurant.phone_number %></td>
+          <td><%= restaurant.category %></td>
+          <td><%#= restaurant.address %></td>
+          <td><%= link_to 'Show Details', restaurant %></td>
+          <td><%#= link_to 'Show Reviews', restaurant_reviews_path(@restaurant) %></td>
+          <td><%#= link_to 'Edit', edit_restaurant_path(restaurant) %></td>
+          <td><%#= link_to 'Destroy', restaurant, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      </tbody>
+  </table>
+
+  <br>
+
+  <%= link_to 'New Restaurant', new_restaurant_path, class: "btn btn-primary" %>
+</div>
